@@ -1,4 +1,5 @@
-import React, { useReducer, useRef, useState } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { useRef, useState } from 'react';
 import Papa from 'papaparse';
 
 const CSVUploader: React.FC = () => {
@@ -41,6 +42,7 @@ const CSVUploader: React.FC = () => {
         >;
 
         for (const key of parsedData.data) {
+          //@ts-ignore
           const exercise = key['Exercise Name'];
           if (!data[exercise]) {
             data[exercise] = {
@@ -51,8 +53,11 @@ const CSVUploader: React.FC = () => {
           }
 
           const payload = {
+            //@ts-ignore
             date: key['Date'],
+            //@ts-ignore
             weight: Number(key['Weight']),
+            //@ts-ignore
             reps: Number(key['Reps']),
           };
 
